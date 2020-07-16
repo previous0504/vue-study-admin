@@ -9,7 +9,6 @@ Vue.use(Router)
 
 const routes = [{
     path: '/',
-    // component: () => import("../views/dashboard/index"),
     component: Layout,
     redirect: '/dashboard',
     children: [{

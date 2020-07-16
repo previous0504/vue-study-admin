@@ -16,7 +16,6 @@ export default {
   },
   methods: {
     toggleSideBar() {
-      console.log("点击");
       this.active = !this.active;
     }
   }

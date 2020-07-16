@@ -4,15 +4,19 @@
     <template
       v-if="hasOneShowingChild(item.children,item) &&(!onlyOneChild.children ||onlyOneChild.noShowingChildren)"
     >
+      <!-- Link组件看不懂 -->
+      <!-- <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)"> -->
       <el-menu-item :index="resolvePath(onlyOneChild.path)">
         <template slot="title">
           <i class="el-icon-location"></i>
           <span v-if="onlyOneChild.meta">{{onlyOneChild.meta.title}}</span>
         </template>
       </el-menu-item>>
+      <!-- </app-link> -->
     </template>
     <!-- 显示子路由 -->
-    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)">
+
+    <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
         <i class="el-icon-location"></i>
         <span v-if="item.meta">{{item.meta.title}}</span>
@@ -24,6 +28,7 @@
         :is-nest="true"
         :item="child"
         :base-path="resolvePath(child.path)"
+        class="nest-menu"
       />
     </el-submenu>
   </div>
@@ -31,8 +36,12 @@
 <script>
 import path from "path";
 import { isExternal } from "@/utils/validate";
+import AppLink from "./Link";
 export default {
   name: "SidebarItem",
+  components: {
+    AppLink
+  },
   data() {
     return {
       onlyOneChild: null
@@ -67,14 +76,13 @@ export default {
       // 如果没有要显示的子路由器，则显示父路由器
       if (showingChildren.length === 0) {
         this.onlyOneChild = { ...parent, path: "", noShowingChildren: true };
+        return true;
         console.log(this.onlyOneChild);
       }
       return false;
     },
     // 判断路由地址
     resolvePath(routePath) {
-      console.log("route", routePath);
-      console.log("basePath", this.basePath);
       if (isExternal(routePath)) {
         return routePath;
       }

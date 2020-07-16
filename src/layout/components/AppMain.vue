@@ -1,11 +1,18 @@
 <template>
   <section class="app-main">
-    <!-- <router-view /> -->
+    <transition name="fade-transform" mode="out-in">
+      <router-view :key="key" />
+    </transition>
   </section>
 </template>
 <script>
 export default {
   name: "AppMain",
+  computed: {
+    key() {
+      return this.$route.path;
+    }
+  },
   data() {
     return {};
   },
