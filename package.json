@@ -1,6 +1,7 @@
 {
   "name": "demo_app",
   "version": "0.1.0",
+  "author": "Zhang <840351259@qq.com>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
