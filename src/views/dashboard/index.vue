@@ -1,5 +1,7 @@
 <template>
-  <div class="dashboard-container">111</div>
+  <div class="dashboard-container">
+    <svg-icon icon-class="eye" />
+  </div>
 </template>
 <script>
 export default {
