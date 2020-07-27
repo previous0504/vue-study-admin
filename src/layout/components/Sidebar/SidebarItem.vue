@@ -8,7 +8,7 @@
       <!-- <app-link v-if="onlyOneChild.meta" :to="resolvePath(onlyOneChild.path)"> -->
       <el-menu-item :index="resolvePath(onlyOneChild.path)">
         <template slot="title">
-          <i class="el-icon-location"></i>
+          <svg-icon :icon-class="onlyOneChild.meta.icon" />
           <span v-if="onlyOneChild.meta">{{onlyOneChild.meta.title}}</span>
         </template>
       </el-menu-item>>
@@ -18,7 +18,7 @@
 
     <el-submenu v-else ref="subMenu" :index="resolvePath(item.path)" popper-append-to-body>
       <template slot="title">
-        <i class="el-icon-location"></i>
+        <svg-icon :icon-class="item.meta.icon" />
         <span v-if="item.meta">{{item.meta.title}}</span>
       </template>
 

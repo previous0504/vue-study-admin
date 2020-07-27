@@ -23,7 +23,7 @@ const routes = [{
     component: Layout,
     redirect: "/example/table",
     name: "Example",
-    meta: { title: "Example", icon: 'el-icon-s-help' },
+    meta: { title: "Example", icon: 'user' },
     children: [{
         path: 'table',
         name: 'Table',

@@ -1,13 +1,16 @@
 <template>
   <div class="navbar">
     <Hamburger :is-active="active" class="hamburger-container" @toggleClick="toggleSideBar" />
+    <Breadcrumb class="breadcrumb-container" />
   </div>
 </template>
 <script>
 import Hamburger from "@/components/Hamburger";
+import Breadcrumb from "@/components/Breadcrumb";
 export default {
   components: {
-    Hamburger
+    Hamburger,
+    Breadcrumb
   },
   data() {
     return {
@@ -39,6 +42,9 @@ export default {
     &:hover {
       background: rgba(0, 0, 0, 0.025);
     }
+  }
+  .breadcrumb-container {
+    float: left;
   }
 }
 </style>

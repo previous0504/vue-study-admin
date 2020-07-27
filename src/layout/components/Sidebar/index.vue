@@ -3,9 +3,9 @@
     <el-menu
       :default-active="activeMenu"
       class="el-menu-vertical-demo"
-      background-color="#545c64"
-      text-color="#fff"
-      active-text-color="#ffd04b"
+      :background-color="variables.menuBg"
+      :text-color="variables.menuText"
+      :active-text-color="variables.menuActiveText"
       mode="vertical"
       router
     >
@@ -20,6 +20,7 @@
 </template>
 <script>
 import SidebarItem from "./SidebarItem";
+import variables from "@/styles/variables.scss";
 export default {
   components: {
     SidebarItem
@@ -39,6 +40,9 @@ export default {
         return meta.activeMenu;
       }
       return path;
+    },
+    variables() {
+      return variables;
     }
   },
 
